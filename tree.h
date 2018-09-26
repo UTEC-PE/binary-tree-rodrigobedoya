@@ -4,6 +4,7 @@
 #include <iostream>
 #include <vector>
 #include "node.h"
+#include "iterator.h"
 
 class Tree
 {
@@ -14,6 +15,12 @@ private:
 public:
 	Tree():
 		root(NULL),weight(0){}
+
+	Iterator begin()
+	{
+		Iterator start(root);
+		return start;
+	}
 
 	int getWeight()
 	{
@@ -49,7 +56,6 @@ public:
 		std::cout << root->data << " ";
 		printInOrder(root->right_child);
 		std::cout << std::endl;
-		return;	
 	}
 
 	void printPreOrder()
@@ -61,7 +67,6 @@ public:
 		printPreOrder(root->left_child);
 		printPreOrder(root->right_child);
 		std::cout << std::endl;
-		return;	
 	}
 
 	void printPostOrder()
@@ -73,7 +78,6 @@ public:
 		printPostOrder(root->right_child);
 		std::cout << root->data << " ";
 		std::cout << std::endl;
-		return;	
 	}
 
 	int height()
@@ -119,7 +123,6 @@ private:
 		printInOrder(node->left_child);
 		std::cout << node->data << " ";
 		printInOrder(node->right_child);
-		return;	
 	}
 	
 	void printPreOrder(Node* node)
@@ -130,7 +133,6 @@ private:
 		std::cout << node->data << " ";
 		printPreOrder(node->left_child);
 		printPreOrder(node->right_child);
-		return;	
 	}
 
 	void printPostOrder(Node* node)
@@ -141,7 +143,6 @@ private:
 		printPostOrder(node->left_child);
 		printPostOrder(node->right_child);
 		std::cout << node->data << " ";
-		return;	
 	}
 
 	int height(Node* node)
@@ -158,25 +159,6 @@ private:
 	}
 
 
-	void getOrderedData(Node* node, std::vector<Node*> &orderedData)
-	{
-		if (node == NULL)
-			return;
-		
-		getOrderedData(node->left_child,orderedData);
-		orderedData.push_back(node);
-		getOrderedData(node->right_child,orderedData);	
-	}
-
-	void buildFromMiddle()
-	{
-
-	}
-
-	void balance()
-	{
-
-	}
 };
 
 #endif
