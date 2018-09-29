@@ -10,18 +10,17 @@ public:
 
 	Iterator operator ++()
 	{
-		increment(current);
+		increment();
 		return *this;
 	}
 
 	Iterator operator +(int number)
 	{
-		Node* temp = current;
 		for(int i = 0; i < number;i++)
 		{
-			increment(temp);
+			increment();
 		}
-		return temp;
+		return *this;
 	}
 
 	Node* operator *()
@@ -77,35 +76,6 @@ protected:
 		{
 			current = current->right_child;
 			current = leftMostFrom(current);
-		}
-	}
-
-	void increment(Node* &node)
-	{
-		if(node->left_child== NULL && node->right_child==NULL)
-		{
-			node = nodes.back();
-		}
-
-		else if(node == nodes.back())
-		{
-			if(node->right_child!=NULL)
-			{
-				node = node->right_child;
-				nodes.pop_back();
-				node = leftMostFrom(node);
-			}
-			else
-			{
-				nodes.pop_back();
-				node = nodes.back();
-			}
-		}
-
-		else
-		{
-			node = node->right_child;
-			node = leftMostFrom(current);
 		}
 	}
 };

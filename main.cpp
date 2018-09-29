@@ -11,11 +11,16 @@ int main()
 	test.insert(6);
 	test.insert(7);
 	test.insert(8);
-	
+	test.insert(9);
+	test.insert(1);
 	test.printInOrder();
 	test.printPreOrder();
 	test.printPostOrder();
-	std::cout << (*(test.begin()+2))->data << std::endl;
+
+	std::cout << std::endl<<(*(test.begin()+1))->data << std::endl;
+	test.remove(2);
+	std::cout << (*(test.begin()+1))->data << std::endl <<std::endl;
+
 	std::cout << test.getWeight() << std::endl;
 	std::cout << test.height() << std::endl;
 	return 0;

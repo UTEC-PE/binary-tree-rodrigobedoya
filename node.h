@@ -13,6 +13,12 @@ struct Node
 		right_child(right_child)
 	{}
 
+	void copy(Node node)
+	{
+		data = node.data;
+		left_child = node.left_child;
+		right_child = node.right_child;
+	}
 };
 
 #endif

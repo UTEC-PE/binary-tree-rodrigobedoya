@@ -46,6 +46,48 @@ public:
 			std::cout << "Value already in binary tree! It won't be added." << std::endl;
 	}
 	
+	void remove(int value)
+	{
+		Node* to_remove;
+		if (find(to_remove,value))
+		{
+			if(to_remove->left_child == NULL && to_remove->left_child == NULL)
+			{
+
+			}	
+			else if(to_remove->left_child == NULL)
+			{
+				Node *temp = to_remove->right_child;
+				to_remove->copy(*temp);
+				delete temp;
+			}
+			else if(to_remove->right_child == NULL)
+			{
+				Node *temp = to_remove->left_child;
+				to_remove->copy(*temp);
+				delete temp;
+			}
+			else
+			{
+				std::cout << "what ";
+			}
+			return;
+		}
+		throw "Can't delete what doesn't exist.";
+	}
+
+	bool find(Node *&node,int value)
+	{
+		for(Iterator it = begin(); *it;++it)
+		{
+			if((*it)->data == value)
+			{
+				node = *it;
+				return true;
+			}
+		}
+		return false;
+	}
 	
 	void printInOrder()
 	{
