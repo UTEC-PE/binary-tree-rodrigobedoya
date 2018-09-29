@@ -15,7 +15,7 @@ int main()
 	test.printInOrder();
 	test.printPreOrder();
 	test.printPostOrder();
-	std::cout << *(test.begin()+2) << std::endl;
+	std::cout << (*(test.begin()+2))->data << std::endl;
 	std::cout << test.getWeight() << std::endl;
 	std::cout << test.height() << std::endl;
 	return 0;

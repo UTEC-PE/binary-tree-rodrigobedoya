@@ -46,7 +46,7 @@ public:
 			std::cout << "Value already in binary tree! It won't be added." << std::endl;
 	}
 	
-
+	
 	void printInOrder()
 	{
 		if (root == NULL)

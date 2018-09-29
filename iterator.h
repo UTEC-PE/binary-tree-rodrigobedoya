@@ -5,7 +5,32 @@
 
 class Iterator
 {
+	friend class Tree;
 public:
+
+	Iterator operator ++()
+	{
+		increment(current);
+		return *this;
+	}
+
+	Iterator operator +(int number)
+	{
+		Node* temp = current;
+		for(int i = 0; i < number;i++)
+		{
+			increment(temp);
+		}
+		return temp;
+	}
+
+	Node* operator *()
+	{
+		return current;
+	}
+
+protected:
+
 	std::vector<Node*> nodes;
 	Node* current;
 	
@@ -24,25 +49,7 @@ public:
 	}
 
 
-	Iterator operator ++()
-	{
-		increment();
-		return *this;
-	}
-
-	Iterator operator +(int number)
-	{
-		for(int i = 0; i < number;i++)
-		{
-			increment();
-		}
-		return *this;
-	}
-
-	int operator *()
-	{
-		return current->data;
-	}
+	
 
 	void increment()
 	{
@@ -70,6 +77,35 @@ public:
 		{
 			current = current->right_child;
 			current = leftMostFrom(current);
+		}
+	}
+
+	void increment(Node* &node)
+	{
+		if(node->left_child== NULL && node->right_child==NULL)
+		{
+			node = nodes.back();
+		}
+
+		else if(node == nodes.back())
+		{
+			if(node->right_child!=NULL)
+			{
+				node = node->right_child;
+				nodes.pop_back();
+				node = leftMostFrom(node);
+			}
+			else
+			{
+				nodes.pop_back();
+				node = nodes.back();
+			}
+		}
+
+		else
+		{
+			node = node->right_child;
+			node = leftMostFrom(current);
 		}
 	}
 };
