@@ -53,7 +53,17 @@ public:
 		{
 			if(to_remove->left_child == NULL && to_remove->left_child == NULL)
 			{
-
+				Node* temp;
+				if(value==root->data)
+				{
+					temp = root;
+					root = NULL;
+				}
+				else
+				{
+					//change parent pointer to null;
+				}
+				delete temp;
 			}	
 			else if(to_remove->left_child == NULL)
 			{
@@ -69,7 +79,7 @@ public:
 			}
 			else
 			{
-				std::cout << "what ";
+
 			}
 			return;
 		}
