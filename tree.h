@@ -22,6 +22,8 @@ public:
 		return start;
 	}
 
+	// Falta el end()
+
 	int getWeight()
 	{
 		return weight;
@@ -42,11 +44,11 @@ public:
 		else if (data > root->data)
 			insert(data,root->right_child);
 			
-		else
-			std::cout << "Value already in binary tree! It won't be added." << std::endl;
+		/*else
+			std::cout << "Value already in binary tree! It won't be added." << std::endl;*/
 	}
 	
-	void remove(int value)
+	void remove(int value) // Tu remove tiene problemas
 	{
 		Node* to_remove;
 		if (find(to_remove,value))
@@ -83,7 +85,7 @@ public:
 			}
 			return;
 		}
-		throw "Can't delete what doesn't exist.";
+		//throw "Can't delete what doesn't exist.";
 	}
 
 	bool find(Node *&node,int value)
@@ -163,8 +165,8 @@ private:
 		else if (data > node->data)
 			insert(data,node->right_child);
 			
-		else
-			std::cout << "Value already in binary tree! It won't be added." << std::endl;
+		/*else
+			std::cout << "Value already in binary tree! It won't be added." << std::endl;*/
 	}
 
 	void printInOrder(Node* node)
@@ -210,6 +212,7 @@ private:
 		return right;
 	}
 
+	// Falta el destructor
 
 };
 
